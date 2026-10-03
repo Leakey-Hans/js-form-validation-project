@@ -1,0 +1,178 @@
+ /* Reset: remove default spacing and make sizing predictable */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Center the card on the page */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+/* The white card */
+main {
+    background-color: white;
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* The area above the footer */
+section {
+    padding: 32px;
+    text-align: center;
+}
+
+/* "GET STARTED FREE" badge */
+span {
+    display: inline-block;
+    background-color: #e5e7eb;
+    color: #111827;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+h1 {
+    font-size: 26px;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* Form */
+form {
+    margin-top: 24px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    border: 1px solid #dbe2ec;
+    border-radius: 8px;
+    background-color: white;
+    color: #0f172a;
+    margin-bottom: 16px;
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+ 
+/* Highlight the field you are typing in */
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #0f172a;
+}
+
+    /* Country + Postal code sit side by side */
+#row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 12px;
+}
+
+#row div {
+    flex: 1 1 140px; /* grow, shrink, and wrap when narrower than 140px */
+}
+
+#row div:first-child {
+    flex: 2 1 180px; /* country gets more room */
+}
+
+    /* Small helper text under the password */
+small {
+    display: block;
+    font-size: 12px;
+    color: #64748b;
+    margin-top: -10px;
+    margin-bottom: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: #0f172a;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+button:hover {
+    background-color: #1e293b;
+}
+
+/* Terms text */
+form p {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 18px;
+}
+
+a {
+    color: #0f172a;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Bottom grey bar */
+footer {
+    background-color: #f1f5f9;
+    border-top: 1px solid #e2e8f0;
+    padding: 18px;
+    text-align: center;
+    font-size: 14px;
+    color: #64748b;
+}
+
+footer a {
+    font-weight: bold;
+}
+
+/* Phones: less padding so the form has more room */
+@media (max-width: 480px) {
+    section {
+    padding: 24px 18px;
+    }
+
+    h1 {
+    font-size: 22px;
+    }
+}
