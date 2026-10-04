@@ -16,9 +16,81 @@ const postalError = document.querySelector('.postalError');
 const passwordError = document.querySelector('.passwordError');
 const passConfirmError = document.querySelector('.pConfirmError');
 
-email.addEventListener('input', (e) => {
-    email.validity
+/**inline validation display as user types */
+
+email.addEventListener('input', () => {
+    if (email.validity.valid) {
+        emailError.textContent  = '';
+    } else {
+        showError();
+    };
 });
+
+country.addEventListener('input', (e) => {
+    if (country.validity.valid) {
+        countryError.textContent  = '';
+    } else {
+        e.preventDefault()
+        showError();
+
+    };
+});
+
+postal.addEventListener('input', (e) => {
+    if (postal.validity.valid) {
+        postalError.textContent  = '';
+    } else {
+        e.preventDefault()
+        showError();
+    };
+});
+
+pass.addEventListener('input', (e) => {
+    if (pass.validity.valid) {
+        passwordError.textContent = "Strong Password"
+        passwordError.classList.add('passConfirmMatch');
+    } else {
+        e.preventDefault()
+        showError();
+        passwordError.classList.remove('passConfirmMatch');
+    }
+});
+
+passConfirm.addEventListener('input', (e) => {
+    if (pass.value !== passConfirm.value) {
+        passConfirmError.textContent = 'Passwords do not match';
+        passConfirmError.classList.remove("passConfirmMatch");
+    } else if (pass.value === passConfirm.value && passConfirm.value !== "") {
+        passConfirmError.textContent = 'Passwords Match';
+        passConfirmError.classList.add("passConfirmMatch");
+    } else {
+        passConfirmError.textContent = "";
+        passConfirmError.classList.remove("passConfirmMatch");
+    }
+});
+
+/**Prevent the form from submitting when a field is invalid */
+
+form.addEventListener('submit', (e) => {
+    if (!email.validity.valid) {
+        showError();
+        e.preventDefault();
+    } else if (!country.validity.valid) {
+        showError();
+        e.preventDefault();
+    } else if (!postal.validity.valid) {
+        showError();
+        e.preventDefault();
+    } else if (!pass.validity.valid) {
+        showError();
+        e.preventDefault();
+    } else if (pass.value !== passConfirm.value) {
+        passConfirmError.textContent = 'Passwords do not match';
+        e.preventDefault();
+    }
+});
+
+/**Function that toggles the correct Error */
 
 function showError () {
     if (email.validity.typeMismatch) {
@@ -31,18 +103,10 @@ function showError () {
         postalError.textContent = 'Please Fill this Field';
     } else if (pass.validity.patternMismatch) {
         passwordError.textContent = 'Use 8+ characters with a mix of letters, numbers and symbols.'
-    } else if (!pass.validity.patternMismatch) {
-        passwordError.textContent = 'Strong Password';
-        passwordError.classList.add('passConfirmMatch');
     } else if (pass.validity.valueMissing) {
         passwordError.textContent = 'You must Fill out this Field';
     } else if (passConfirm.validity.valueMissing) {
         passConfirmError.textContent = 'Please Confirm your Password';
-    } else if (pass.value !== passConfirm.value) {
-        passConfirmError.textContent = 'Passwords do not Match';
-    } else if (pass.value === passConfirm.value) {
-        passConfirmError.textContent = 'Passwords Match';
-        passConfirmError.classList.add("passConfirmMatch");
     };
 };
 
