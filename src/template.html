@@ -12,9 +12,10 @@
             <h1>Create your account</h1>
             <p>Fill in your details below — it takes less than a minute.</p>
 
-            <form action="#" method="#"  novalidate>
+            <form action="#" method="#"  novalidate class="create-acc">
                 <label for="email">Email address</label>
-                <input type="email" id="email" placeholder="you@company.com" required>
+                <input type="email" id="email" placeholder="you@company.com" name="email" required>
+                <small class="emailError"></small>
 
                 <div id="row">
                     <div>
@@ -27,19 +28,23 @@
                         <option>United States</option>
                         <option>United Kingdom</option>
                         </select>
+                        <small class="countryError"></small>
                     </div>
                     <div>
                         <label for="postal">Postal code</label>
                         <input type="text" id="postal" placeholder="00100">
+                        <small class="postalError"></small>
                     </div>
                 </div>
 
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="At least 8 characters" minlength="8" required>
-                <small>Use 8+ characters with a mix of letters and numbers.</small>
+                <input type="password" id="password" placeholder="At least 8 characters" minlength="8" required
+                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
+                <small class="passwordError"></small>
 
                 <label for="confirm">Confirm password</label>
                 <input type="password" id="confirm" placeholder="Re-enter your password" required>
+                <small class="pConfirmError"></small>
 
                 <button type="submit">Create account</button>
 

@@ -165,6 +165,18 @@ footer a {
     font-weight: bold;
 }
 
+.emailError,
+.countryError,
+.postalError,
+.passwordError,
+.pConfirmError {
+    color: rgb(225, 0, 0);
+}
+
+.passConfirmMatch{
+    color: rgb(1, 148, 1);
+}
+
 /* Phones: less padding so the form has more room */
 @media (max-width: 480px) {
     section {

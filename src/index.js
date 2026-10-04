@@ -1,2 +1,48 @@
 import "./styles.css"
 
+/** Input Groups */
+const form = document.querySelector('.create-acc');
+const email = document.querySelector('#email');
+const country = document.querySelector('#country');
+const postal = document.querySelector('#postal');
+const pass = document.querySelector('#password');
+const passConfirm = document.querySelector('#confirm');
+
+/**Error Messages */
+
+const emailError = document.querySelector('.emailError');
+const countryError = document.querySelector('.countryError');
+const postalError = document.querySelector('.postalError');
+const passwordError = document.querySelector('.passwordError');
+const passConfirmError = document.querySelector('.pConfirmError');
+
+email.addEventListener('input', (e) => {
+    email.validity
+});
+
+function showError () {
+    if (email.validity.typeMismatch) {
+        emailError.textContent = 'This does not appear to be a valid Email address';
+    } else if (email.validity.valueMissing) {
+        emailError.textContent = 'You must Fill out this Field';
+    } else if (country.validity.valueMissing) {
+        countryError.textContent = 'Please Select Your Country';
+    } else if (postal.validity.valueMissing) {
+        postalError.textContent = 'Please Fill this Field';
+    } else if (pass.validity.patternMismatch) {
+        passwordError.textContent = 'Use 8+ characters with a mix of letters, numbers and symbols.'
+    } else if (!pass.validity.patternMismatch) {
+        passwordError.textContent = 'Strong Password';
+        passwordError.classList.add('passConfirmMatch');
+    } else if (pass.validity.valueMissing) {
+        passwordError.textContent = 'You must Fill out this Field';
+    } else if (passConfirm.validity.valueMissing) {
+        passConfirmError.textContent = 'Please Confirm your Password';
+    } else if (pass.value !== passConfirm.value) {
+        passConfirmError.textContent = 'Passwords do not Match';
+    } else if (pass.value === passConfirm.value) {
+        passConfirmError.textContent = 'Passwords Match';
+        passConfirmError.classList.add("passConfirmMatch");
+    };
+};
+
