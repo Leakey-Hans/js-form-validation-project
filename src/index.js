@@ -110,3 +110,34 @@ function showError () {
     };
 };
 
+/**Toggling  Password start*/
+
+function togglePassword () {
+    const password = document.querySelector('#password');
+    const passwordConfirm = document.querySelector('#confirm');
+    const togglePassBtn = document.querySelector ('.passPrivacy-btn');
+    const passwordConfirmBtn = document.querySelector('.passConfirmPrivacy-btn');
+
+    togglePassBtn.addEventListener('click', () => {
+        if (password.type === 'password') {
+            password.type = 'text';
+            togglePassBtn.textContent = 'Hide';
+        } else {
+            password.type = 'password';
+            togglePassBtn.textContent = 'show';
+        }
+    });
+
+    passwordConfirmBtn.addEventListener('click', () => {
+        if (passwordConfirm.type === 'password') {
+            passwordConfirm.type = 'text';
+            passwordConfirmBtn.textContent = 'Hide';
+        } else {
+            passwordConfirm.type = 'password';
+            passwordConfirmBtn.textContent = 'show';
+        }
+    });
+}
+
+togglePassword();
+

@@ -61,6 +61,7 @@ p {
 form {
     margin-top: 24px;
     text-align: left;
+    position: relative;
 }
 
 label {
@@ -175,6 +176,28 @@ footer a {
 
 .passConfirmMatch{
     color: rgb(1, 148, 1);
+}
+
+.passPrivacy-btn {
+    width: 70px;
+    height: 30px;
+    padding: 0;
+    color: #94a3b8;
+    position: absolute;
+    left: 78%;
+    top: 44%;
+    background-color: #f6f6f6;
+}
+
+.passConfirmPrivacy-btn {
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    padding: 0;
+    color: #94a3b8;
+    background-color: #f6f6f6;
+    left: 78%;
+    top: 63%;
 }
 
 /* Phones: less padding so the form has more room */
