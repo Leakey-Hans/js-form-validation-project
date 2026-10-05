@@ -210,3 +210,27 @@ footer a {
     font-size: 22px;
     }
 }
+
+@media (max-width: 401px) {
+    .passPrivacy-btn {
+    width: 70px;
+    height: 30px;
+    padding: 0;
+    color: #94a3b8;
+    position: absolute;
+    left: 75%;
+    top: 53%;
+    background-color: #f6f6f6;
+}
+
+.passConfirmPrivacy-btn {
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    padding: 0;
+    color: #94a3b8;
+    background-color: #f6f6f6;
+    left: 75%;
+    top: 69%;
+}
+}
